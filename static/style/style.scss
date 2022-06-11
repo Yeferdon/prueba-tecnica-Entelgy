@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+
+$black: #000000ce;
+$grey: #ccccccdd;
+$white: #fefefe;
+
+@mixin displayFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin displayFlexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat";
+}
+body {
+  background-color: $grey;
+}
+.navbar {
+  background-color: $white;
+  @include displayFlex();
+
+  padding: 10px 10px;
+  h2 {
+    padding: 0 10px;
+  }
+}
+
+footer {
+  @include displayFlexCenter();
+  background-color: black;
+  height: 60px;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  h4 {
+    color: $white;
+  }
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+.form-search {
+  @include displayFlexCenter();
+  padding: 1rem;
+  input {
+    background-color: $white;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    width: 40%;
+  }
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.img-fluid {
+  height: 175px;
+  width: 100%;
+}
+.card {
+  background-color: $white;
+  box-shadow: 1px 2px 7px 1px $black;
+  border-radius: 10px;
+  @include displayFlex();
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border: $white 5px solid;
+  .card-content {
+    padding: 1rem;
+    width: 100%;
+    h2 {
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+    div {
+      border-radius: 10px;
+      height: 35px;
+      margin-bottom: 15px;
+      padding: 5px;
+      width: 100%;
+    }
+    div:last-child {
+      margin-bottom: 15px;
+    }
+  }
+}
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.link-card,
+.come-back,
+.link-country {
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.5s;
+  width: 150px;
+}
+.link-country {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #dfdfdfe9;
+  color: $black;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.link-country:hover {
+  background-color: $grey;
+}
+.modal {
+  width: 0;
+  height: 100%;
+  top: 0;
+  background-color: $grey;
+  z-index: 3;
+  @include displayFlexCenter();
+  transition: all 0.5s;
+  .block {
+    background-color: white;
+    width: 20%;
+    border-radius: 10px;
+    height: 10%;
+    position: relative;
+    z-index: 4;
+    color: black;
+    @include displayFlexCenter();
+    flex-direction: column;
+    p {
+      font-weight: 600;
+      color: red;
+      cursor: pointer;
+    }
+  }
+}
+.center {
+  @include displayFlexCenter();
+  .card {
+    width: 90%;
+    .img-fluid {
+      height: 400px;
+    }
+  }
+}
+
+a {
+  font-weight: 700;
+}
+@media (max-width: 1024px) {
+  section,
+  main {
+    padding: 0 2rem;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .form-search input {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  section,
+  main {
+    padding: 0 1rem;
+  }
+  .nav-contacts li {
+    font-size: 10px;
+  }
+  .form-search input {
+    font-size: 15px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 425px) {
+  section,
+  main {
+    padding: 0 0;
+  }
+  .form-search input {
+    background-color: $white;
+    font-size: 10px;
+  }
+  .nav-contacts {
+    display: none;
+  }
+  .header nav {
+    display: flex;
+    justify-content: center;
+  }
+  .grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .modal-window > div {
+    width: 300px;
+  }
+}
